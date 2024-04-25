@@ -40,9 +40,28 @@ function showSlider(type){
         carouselDom.classList.remove('next');
         carouselDom.classList.remove('prev');
     }, timeRunning);
-
+    
     clearTimeout(runNextAuto);
     runNextAuto = setTimeout(() => {
         next.click();
     }, timeAutoNext)
 }
+
+
+
+let navbar=document.querySelectorAll(".navbar")
+const handleScroll=()=>{
+    const scrollPosition = window.scrollY;
+    let second_section=document.getElementById("second-section");
+    if(scrollPosition >= second_section.offsetTop){
+        navbar.forEach(link => {
+            link.style.color="black";
+        });
+    }else{
+        navbar.forEach(link => {
+        link.style.color="white";
+    });
+}
+};
+window.addEventListener("scroll", handleScroll);
+
